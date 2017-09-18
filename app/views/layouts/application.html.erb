@@ -1,17 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tag %>
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
-  <div id="header">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">AirBnB Clone</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="home"><%= link_to t("Home"), sign_in_path %></li>
+        <li class="your_listings"><%= link_to t("Your Listings"), sign_in_path %></li>
+        <li id="sign_out">  <% if signed_in? -%>
+            <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+          <% else -%>
+            <%= link_to t(".sign_in"), sign_in_path %>
+          <% end -%></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- <div id="user_header">
     <% if signed_in? -%>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>
     <% end -%>
-  </div>
+  </div> -->
 
   <div id="flash">
     <% flash.each do |key, value| -%>
