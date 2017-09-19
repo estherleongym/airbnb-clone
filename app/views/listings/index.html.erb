@@ -1,0 +1,11 @@
+  <div id="create_listing" align="center"><%= link_to t(".Create a Listing"), new_user_listing_path(current_user.id) %></div>
+
+  <div class="all_listings">
+    <% @all_listings.each do |listing| -%>
+      <%= listing.location %>
+      <%= listing.price_per_night %>
+      <% user = User.find(listing.user_id) %>
+      <%= user.first_name + " " + user.last_name %>
+      <br></br>
+    <% end %>
+  </div>

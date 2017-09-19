@@ -4,7 +4,7 @@
   <div id="sign_up"><%= link_to "Sign in with Facebook", "/auth/facebook" %></div> -->
 
 
-
+<div class="landing-bg">
   <div class="container">
     <div class="row">
       <div class="Absolute-Center is-Responsive">
@@ -19,7 +19,7 @@
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               <input class="form-control" type="password" name='password' placeholder="password"/>
             </div>
-            <div id="sign_up" align="center"><%= link_to t(".sign_up"), sign_up_path %></div>
+            <div id="sign_up"><%= link_to t(".sign_up"), sign_up_path %></div>
               <div id="sign_in_fb" align="center"><%= link_to "Sign in with Facebook", "/auth/facebook" %></div>
             <div class="form-group">
               <button type="button" class="btn btn-def btn-block">Login</button>
@@ -32,3 +32,4 @@
       </div>
     </div>
   </div>
+</div>
