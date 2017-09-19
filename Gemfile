@@ -40,6 +40,10 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth-facebook'
 gem 'omniauth'
 
+gem 'will_paginate', '~> 3.1.0'
+
+gem 'faker'
+
 gem 'figaro'
 
 group :development, :test do

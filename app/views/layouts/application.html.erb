@@ -14,7 +14,8 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="home"><%= link_to t("Home"), sign_in_path %></li>
-        <li class="your_listings"><%= link_to t("Your Listings"), sign_in_path %></li>
+        <li class="your_listings"><%= link_to t("Your Listings"), user_listings_path(current_user.id) %></li>
+        <li class="all_listings"><%= link_to t("All Listings"), listings_all_path %></li>
         <li id="sign_out">  <% if signed_in? -%>
             <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
           <% else -%>
@@ -23,14 +24,6 @@
       </ul>
     </div>
   </nav>
-
-  <!-- <div id="user_header">
-    <% if signed_in? -%>
-      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
-    <% else -%>
-      <%= link_to t(".sign_in"), sign_in_path %>
-    <% end -%>
-  </div> -->
 
   <div id="flash">
     <% flash.each do |key, value| -%>

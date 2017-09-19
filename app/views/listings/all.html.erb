@@ -1,0 +1,14 @@
+
+
+<div class="all_users_listings">
+<%= will_paginate @all_users_listings %>
+
+  <% @all_users_listings.all.each do |listing| -%>
+  <div class="listing_details"><%= listing.location %>
+  <%= listing.price_per_night %>
+  <% user = User.find(listing.user_id) %>
+  <%= user.first_name + " " + user.last_name %></div>
+  <br></br>
+<% end %>
+<%= will_paginate @all_users_listings %>
+</div>

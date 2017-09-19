@@ -18,9 +18,7 @@
 
  body{
    font-family: 'Poppins', sans-serif;
-   background-image: url("white.jpg");
-    background-position: center -250px;
-    background-size: 100%;
+
   //  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00589F', endColorstr='#0073CF', GradientType=0);
   //  background: -webkit-linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
   //  background: -moz-linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
@@ -29,6 +27,18 @@
   //  background: linear-gradient(to bottom, #00589F 50%, #0073CF) !important;
   //  color: white;
  }
+
+.landing-bg{
+
+  background-image: url("white.jpg");
+  // background-position: center -250px;
+  width: 1440px;
+  height: 900px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: -1;
+
+}
 
  div.well{
    height: 250px;
@@ -51,6 +61,16 @@
    background-color: #ecc6d9;
    background: rgba(140, 140, 140, 0.7);
    color: #ffffff;
+ }
+
+ .listing_details{
+
+   width: 300px;
+   height: 200px;
+   border-radius: 25px;
+   border-color: #FAEBD7;
+   border-style: solid;
+
  }
 
  // #logo-container{

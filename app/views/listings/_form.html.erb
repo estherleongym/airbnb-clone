@@ -1,0 +1,11 @@
+<div class="location-name">
+  <%= form.label :location %>
+  <%= form.text_field :location, type: 'location' %>
+</div>
+
+  <%= form.hidden_field :user_id, value: current_user.id %>
+
+<div class="price_per_night">
+  <%= form.label :price_per_night %>
+  <%= form.number_field :price_per_night %>
+</div>
