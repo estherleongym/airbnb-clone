@@ -26,17 +26,34 @@ byebug
   end
 
   def index
-
-
-    @all_listings = current_user.listings
-
+# byebug
+    if current_user.customer?
+      @all_listings = current_user.listings
+    elsif current_user.moderator?
+      @all_listings = Listing.where(verification: "false")
+    end
   end
 
   def all
-
     @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 5).order("created_at DESC")
-
   end
+
+
+  def verify
+    byebug
+
+    if current_user.moderator?
+      @listing = Listing.find(params[:id])
+        if @listing[:verification] == false
+          Listing.update(@listing.id, verification: true)
+
+        else
+          flash[:notice] = "Property already verified."
+
+        end
+      end
+      
+    end
 
   def listing_params
 
