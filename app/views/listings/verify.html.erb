@@ -1,0 +1,21 @@
+<table>
+  <th>Location</th>
+  <th>Price Per Night (RM)</th>
+  <th>Host</th>
+  <th>Verification Status</th>
+  <tr></tr>
+    <tr>
+      <td><%= @listing.location %></td>
+    <td><%= @listing.price_per_night %></td>
+    <% user = User.find(@listing.user_id) %>
+    <td><%= user.first_name + " " + user.last_name %></td>
+
+          <% if @listing.verification == "false" %>
+        <% listing_status = "Unverified" %>
+        <% else %>
+        <% listing_status = "Verified" %>
+        <% end %>
+    <td><%= listing_status %></td>
+    </tr>
+    <tr></tr>
+</table>

@@ -1,11 +1,28 @@
   <div id="create_listing" align="center"><%= link_to t(".Create a Listing"), new_user_listing_path(current_user.id) %></div>
 
   <div class="all_listings">
+  <table>
+    <th text-align="center">Location</th>
+    <th text-align="center">Price Per Night (RM)</th>
+    <th align="center">Host</th>
+    <th align="center">Verification Status</th>
+    <tr></tr>
     <% @all_listings.each do |listing| -%>
-      <%= listing.location %>
-      <%= listing.price_per_night %>
+      <tr>
+        <td><%= listing.location %></td>
+      <td><%= listing.price_per_night %></td>
       <% user = User.find(listing.user_id) %>
-      <%= user.first_name + " " + user.last_name %>
-      <br></br>
+      <td><%= user.first_name + " " + user.last_name %></td>
+
+          <% if listing.verification == false %>
+          <% listing_status = "Unverified" %>
+          <% else %>
+          <% listing_status = "Verified" %>
+          <% end %>
+      <td><%= listing_status %><div id="verify"><%= link_to t(".verify_listing"), verify_property_path(user.id, listing.id), method: :put %></td>
+      </tr>
+      <tr></tr>
     <% end %>
+  </table>
+  </div>
   </div>

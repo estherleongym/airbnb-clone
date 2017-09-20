@@ -16,6 +16,6 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
   get "/listings/all" => "listings#all"
-  
+  put "/users/:user_id/listings/:id/verify" => "listings#verify", as: "verify_property"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
