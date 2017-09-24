@@ -2,12 +2,15 @@
 
   <div class="all_listings">
   <table>
-    <th text-align="center">Location</th>
-    <th text-align="center">Price Per Night (RM)</th>
-    <th align="center">Host</th>
-    <th align="center">Verification Status</th>
+    <th>Location</th>
+    <th>Price Per Night (RM)</th>
+    <th>Host</th>
+    <th>Verification Status</th>
     <tr></tr>
     <% @all_listings.each do |listing| -%>
+    <% listing.images.each do |image| -%>
+    <tr><%= image_tag image.url %></tr>
+    <% end -%>
       <tr>
         <td><%= listing.location %></td>
       <td><%= listing.price_per_night %></td>

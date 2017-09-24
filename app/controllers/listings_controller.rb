@@ -1,32 +1,24 @@
 class ListingsController < ApplicationController
 
   def create
-byebug
     # @listing = current_user.listings.new(listing_params)
     @listing = Listing.new(listing_params)
+    # (:location => params[:listing][:location], :price_per_night => params[:listing][:price_per_night], :images => [:listing][:images])
     # @listing.user_id = params[:user_id]
-
       if @listing.save
-
         redirect_to user_listings_path
-
       else
-
         puts "Listing wasn't saved"
-
         redirect_to user_listings_path
       end
-
-  end
+    end
 
   def new
-
     @listing = Listing.new
-
   end
 
   def index
-# byebug
+
     if current_user.customer?
       @all_listings = current_user.listings
     elsif current_user.moderator?
@@ -40,7 +32,6 @@ byebug
 
 
   def verify
-    byebug
 
     if current_user.moderator?
       @listing = Listing.find(params[:id])
@@ -52,12 +43,12 @@ byebug
 
         end
       end
-      
+
     end
 
   def listing_params
 
-    params.require(:listing).permit(:location, :price_per_night, :user_id)
+    params.require(:listing).permit(:location, :price_per_night, :user_id, {images: []})
 
   end
 

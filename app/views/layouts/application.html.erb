@@ -18,23 +18,23 @@
           <% if current_user.customer? -%>
             <li class="home"><%= link_to t("Home"), sign_in_path %></li>
             <li class="all_listings"><%= link_to t("All Listings"), listings_all_path %></li>
-            <li id="sign_out">
-              <li class="your_listings"><%= link_to t("Your Listings"), user_listings_path(current_user.id) %></li>
-                <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+            <li class="your_listings"><%= link_to t("My Listings"), user_listings_path(current_user.id) %></li>
+            <li class="my_profile"><%= link_to t("My Profile"), user_path(current_user.id), method: :get %></li>
+            <div class="img-circle"><%= image_tag(current_user.image.thumb.url) %></div>
+            <li class="sign_out"><%= link_to t(".sign_out"), sign_out_path, method: :delete %></li>
 
 
             <% elsif current_user.moderator? -%>
 
               <li class="home"><%= link_to t("Home"), sign_in_path %></li>
               <li class="all_listings"><%= link_to t("All Listings"), listings_all_path %></li>
-              <li id="sign_out">
+              <li id="sign_out">  <%= button_to t(".sign_out"), sign_out_path, method: :delete %></li>
                 <li class="unverified_listings"><%= link_to t("Verify Listings"), user_listings_path(current_user.id) %></li>
-                  <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
               <% end -%>
 
               <% else -%>
                 <%= link_to t(".sign_in"), sign_in_path %>
-            <% end -%></li>
+            <% end -%>
       </ul>
     </div>
   </nav>

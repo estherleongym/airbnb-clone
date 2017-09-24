@@ -36,20 +36,46 @@ background-color:   #ff9999;
 .container-fluid{
 
   background: rgba(140, 140, 140, 0.7);
+  vertical-align: middle;
 
 }
 
 .navbar{
 
   width: 1440px;
-  height: 50px;
   margin-bottom: 0px;
   padding-bottom: 0px;
+  vertical-align: middle;
 
 }
 
 .nav {
 
   width: 1000px;
+  height: 65px;
+  margin-top: 8px;
+
+
+}
+
+.nav.navbar-nav ul{
+
+  margin-top: 8px;
+
+}
+
+.navbar-header{
+
+  margin-top: 8px;
+
+}
+
+.img-circle img{
+
+  float: right;
+  border-radius: 50%;
+
+  margin-left: 20px;
+  margin-right: 20px;
 
 }

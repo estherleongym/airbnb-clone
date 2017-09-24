@@ -1,0 +1,9 @@
+<ul class="my_profile">
+<br></br>
+
+  <div class="img-circle"><%= image_tag @user.image.medium.url %></div>
+  <li class="name"><%= @user.first_name + " " + @user.last_name%></li>
+  <li class="email_address"><%= @user.email %></li>
+  <p class="upload_image"><%= link_to t("Upload Profile Photo"), edit_user_path(current_user.id) %></p>
+
+</ul>

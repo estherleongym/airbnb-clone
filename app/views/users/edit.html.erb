@@ -1,0 +1,36 @@
+<br></br>
+
+<div class="edit_profile">
+
+  <%= form_for @user, url:'/users/:id', method: 'put', :html => {:multipart => true} do |f| %>
+    <p>
+      <%= f.file_field :image %>
+    </p>
+    <p><%= f.submit %></p>
+<% end %>
+</div>
+
+
+
+<!-- <%= form_tag('/users/:id', method: 'put') do %>
+<% @user = User.find(params[:id])%>
+  <div class="first_name">
+    <%= label_tag(:first_name) %>
+    <%= text_field_tag(:first_name, @user.first_name) %>
+  </div>
+
+  <div class="last_name">
+    <%=  label_tag(:last_name) %>
+    <%= text_field_tag(:last_name, @user.last_name) %>
+  </div>
+
+  <div class="upload_image">
+    <%= label_tag(:profile_picture) %>
+    <%= file_field_tag(:image) %>
+  </div>
+
+  <div class="submit-field">
+    <%= submit_tag %>
+
+   <%end%>
+  </div> -->

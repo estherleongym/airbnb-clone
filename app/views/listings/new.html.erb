@@ -1,6 +1,6 @@
 <div id="new-listing" class="new-listing">
 
-  <%= form_for [current_user, @listing] do |form| %>
+  <%= form_for [current_user, @listing], html: { multipart: true } do |form| %>
     <%= render partial: '/listings/form', object: form %>
 
     <div class="submit-field">
