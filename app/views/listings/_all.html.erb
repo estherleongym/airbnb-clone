@@ -1,47 +1,53 @@
+<div class="card-deck">
 
-<div class="card" style="width: 20rem;">
-<% @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 5).order("created_at DESC") %>
-
-  <!-- <%= will_paginate @all_users_listings %> -->
+<% @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 6).order("created_at DESC") %>
 
   <% @all_users_listings.each do |listing| %>
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <div class="card" style="width: 20rem;">
 
-        <div class='carousel-inner'>
+        <% if !(listing.images.empty?) %>
+        <div id="myCarousel<%= listing.id %>" class="carousel slide" data-interval="false">
 
-        <% if listing.images != nil %>
+            <div class='carousel-inner'>
+
           <% listing.images.each_with_index do |thumb, index| %>
 
-              <div class="item <%= "active" if thumb == listing.images.first %>">
+              <div class="item <%= "active card-img-top" if thumb == listing.images.first %>">
               <img src="<%= thumb.url %>" alt="">
-              </div>
-          <% end %>
-
-        <% else %>
-
-            <div class="item active"><%= image_tag("https://elym-airbnbclone.s3.amazonaws.com/uploads/error/no_image.jpeg") %></div>
+            </div>
 
         <% end %>
 
-    </div>
+        <a class="left carousel-control" href="#myCarousel<%= listing.id %>" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel<%= listing.id %>" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+          </div>
+        </div>
 
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
+        <% else %>
 
-    <div class="card-block">
-      <h4 class="card-title"><%= "RM" + listing.price_per_night.to_s + " " + listing.location %> </h4>
-      <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-      <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-    </div>
+        <!-- <div class="card" style="width: 20rem;"> -->
+          <img class="card-img-top" src="https://s3-ap-southeast-1.amazonaws.com/elym-airbnbclone/uploads/error/no_image.jpeg" style="width:20rem;" alt="Card image cap">
+          <!-- <div class="card-body">
+              <h4 class="card-title"><%= "RM" + listing.price_per_night.to_s + " " + listing.location %> </h4>
+          </div> -->
+        <!-- </div> -->
+
+        <% end %>
+
+
+        <div class="card-body">
+            <h4 class="card-title"><%= "RM" + listing.price_per_night.to_s + " " + listing.location %> </h4>
+        </div>
+      </div>
 
 <% end %>
 
-<%= will_paginate @all_users_listings %>
+
 </div>
