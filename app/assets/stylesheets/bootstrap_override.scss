@@ -20,6 +20,12 @@ a {
 }
 
 
+#sign_in{
+
+float: right;
+
+}
+
 #sign_out{
 
 float: right;
@@ -33,27 +39,45 @@ background-color:   #ff9999;
 
 }
 
+.listings-title {
+
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  text-align: center;
+  color: #fd5c63;
+
+}
+
 .container-fluid{
 
   background: rgba(140, 140, 140, 0.7);
   vertical-align: middle;
+  background-color: #FFF;
 
 }
 
-.navbar{
+.navbar-default{
 
+  // -webkit-box-shadow: 0 2px 1px -1px #999;
+  //  -moz-box-shadow: 0 2px 1px -1px #999;
+  //  box-shadow: 0 2px 1px -1px #999;
   width: 1440px;
   margin-bottom: 0px;
   padding-bottom: 0px;
   vertical-align: middle;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  background-color: #FFF;
 
 }
 
 .nav {
 
   width: 1000px;
-  height: 65px;
+  height: 60px;
   margin-top: 8px;
+  background-color: #FFF;
 
 
 }
@@ -66,7 +90,7 @@ background-color:   #ff9999;
 
 .navbar-header{
 
-  margin-top: 8px;
+  margin-top: 3px;
 
 }
 
@@ -74,8 +98,38 @@ background-color:   #ff9999;
 
   float: right;
   border-radius: 50%;
-
+  border-color: #e7e7e7;
+  border-style: solid;
+  border-width: 1.5px;
+  margin-top: 8px;
   margin-left: 20px;
   margin-right: 20px;
+
+}
+
+.card {
+
+display: inline-block;
+font-family: 'Raleway', sans-serif;
+font-weight: 200;
+font-size: 10px;
+text-align: center;
+
+}
+
+.card-deck {
+
+display:inline-flex;
+margin-left: 80px;
+
+
+}
+
+.paginate {
+
+text-align: center;
+font-family: 'Raleway', sans-serif;
+font-weight: 200;
+color: #fd5c63;
 
 }

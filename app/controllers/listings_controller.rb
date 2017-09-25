@@ -27,7 +27,7 @@ class ListingsController < ApplicationController
   end
 
   def all
-    @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 5).order("created_at DESC")
+    @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 7).order("created_at DESC")
   end
 
 
