@@ -1,0 +1,27 @@
+<%= form_for [current_user, Reservation.new] do |f| %>
+
+
+<div class="guests-pax">
+  <%= f.label :no_of_guests %>
+  <%= f.number_field :guests_count %>
+</div>
+
+  <%= f.hidden_field :guest_id, value: current_user.id %>
+  <%= f.hidden_field :host_id, value: @listing.user_id %>
+  <%= f.hidden_field :listing_id, value: @listing.id %>
+
+  <div class="check-in">
+    <%= f.label :check_in %>
+    <%= f.date_field :check_in %>
+  </div>
+
+  <div class="check-out">
+    <%= f.label :check_out %>
+    <%= f.date_field :check_out %>
+  </div>
+
+  <div class="submit">
+    <%= f.submit "Book" %>
+  </div>
+
+<% end %>

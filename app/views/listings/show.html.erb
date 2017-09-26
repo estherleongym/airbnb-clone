@@ -1,0 +1,13 @@
+<div class="listing-show">
+  <% @property_names = ["Comfy home at", "Suburban terrace house at", "Modern apartment in", "Lakehouse at"]  %>
+    <h1 id="listing-title"><%= "RM" + @listing.price_per_night.to_s + " " + @property_names.sample + " " + @listing.location %></h1>
+
+
+      <div class="listing-owner">
+
+      Posted By: <%= @listing.user.first_name + " " + @listing.user.last_name %>
+
+      </div>
+
+  <%= render "reservations/form" %>
+</div>

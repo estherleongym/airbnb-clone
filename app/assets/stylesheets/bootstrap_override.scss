@@ -32,6 +32,16 @@ float: right;
 
 }
 
+#clearance{
+
+  display: block;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  color: #fd5c63;
+
+}
+
 button{
 
 margin-top: 20px;
@@ -131,5 +141,23 @@ text-align: center;
 font-family: 'Raleway', sans-serif;
 font-weight: 200;
 color: #fd5c63;
+
+}
+
+.listing-show {
+
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  color: #898a8c;
+
+}
+
+#listings-title {
+
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 200;
+  color: #fd5c63;
 
 }

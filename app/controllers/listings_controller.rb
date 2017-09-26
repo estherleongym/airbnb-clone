@@ -6,15 +6,21 @@ class ListingsController < ApplicationController
     # (:location => params[:listing][:location], :price_per_night => params[:listing][:price_per_night], :images => [:listing][:images])
     # @listing.user_id = params[:user_id]
       if @listing.save
-        redirect_to user_listings_path
+        redirect_to root_path
       else
         puts "Listing wasn't saved"
-        redirect_to user_listings_path
+        redirect_to root_path
       end
     end
 
   def new
     @listing = Listing.new
+  end
+
+  def show
+
+    @listing = Listing.find(params[:id])
+
   end
 
   def index
@@ -27,7 +33,10 @@ class ListingsController < ApplicationController
   end
 
   def all
+
     @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 7).order("created_at DESC")
+    redirect_to root_path
+
   end
 
 
