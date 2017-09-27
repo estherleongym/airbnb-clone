@@ -1,5 +1,13 @@
 <%= form_for [current_user, Reservation.new] do |f| %>
 
+  <% if @errors.present? %>
+
+  <div>
+
+    <%= @errors %>
+
+  </div>
+  <% end %>
 
 <div class="guests-pax">
   <%= f.label :no_of_guests %>

@@ -1,8 +1,10 @@
 <div class="card-deck">
 
-<% @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 6).order("created_at DESC") %>
+  <% @verified_listings = Listing.where("verification =  'true'")%>
+  <% @all_users_listings = @verified_listings.paginate(page: params[:page], per_page: 6).order("created_at DESC") %>
 
-  <% @all_users_listings.each do |listing| %>
+  
+  <%  @verified_listings.each do |listing| %>
 
       <div class="card" style="width: 20rem;">
 

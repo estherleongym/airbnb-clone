@@ -1,15 +1,18 @@
   <div id="create_listing" align="center"><%= link_to t(".Create a Listing"), new_user_listing_path(current_user.id) %></div>
 
-  <div class="all_listings">
+<%if current_user.moderator? %>
+
+  <div class="all_unverified_listings">
   <table>
     <th>Location</th>
     <th>Price Per Night (RM)</th>
     <th>Host</th>
     <th>Verification Status</th>
     <tr></tr>
-    <% @all_listings.each do |listing| -%>
+<% @unverified_listings = Listing.where("verification = 'false'") -%>
+  <% @unverified_listings.each do |listing| -%>
     <% listing.images.each do |image| -%>
-    <tr><%= image_tag image.url %></tr>
+    <!-- <tr><%= image_tag image.url %></tr> -->
     <% end -%>
       <tr>
         <td><%= listing.location %></td>
@@ -28,4 +31,40 @@
     <% end %>
   </table>
   </div>
+
+  <%else%>
+
+<div class="my_listings">
+  <table>
+    <th>Location</th>
+    <th>Price Per Night (RM)</th>
+    <th>Host</th>
+    <th>Verification Status</th>
+    <tr></tr>
+<% @my_listings = current_user.listings -%>
+  <% @my_listings.each do |listing| -%>
+    <% listing.images.each do |image| -%>
+    <% end -%>
+      <tr>
+        <td><%= listing.location %></td>
+      <td><%= listing.price_per_night %></td>
+      <% user = User.find(listing.user_id) %>
+      <td><%= user.first_name + " " + user.last_name %></td>
+
+        <% if listing.verification == false %>
+          <% listing_status = "Unverified" %>
+          <% else %>
+          <% listing_status = "Verified" %>
+          <% end %>
+
+      <td><%= listing_status %></td>
+      </tr>
+      <tr></tr>
+    <% end %>
+  </table>
+  </div>
+
+  <%end%>
+
+
   </div>

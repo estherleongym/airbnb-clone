@@ -1,9 +1,47 @@
 <ul class="my_profile">
 <br></br>
+<h2 id="my-profile">My Profile</h2>
 
-  <div class="img-circle"><%= image_tag @user.image.medium.url %></div>
+
+  <!-- <div class="img-circle"><%= image_tag @user.image.medium.url %></div> -->
   <li class="name"><%= @user.first_name + " " + @user.last_name%></li>
   <li class="email_address"><%= @user.email %></li>
   <p class="upload_image"><%= link_to t("Upload Profile Photo"), edit_user_path(current_user.id) %></p>
 
+</ul>
+
+<ul class="my_reservations">
+<br></br>
+<h2 id="my-bookings">My Bookings</h2>
+
+  <% @user.guest_reservations.each do |reservation| %>
+
+  <% @property_names = ["Comfy home at", "Suburban terrace house at", "Modern apartment in", "Lakehouse at"]  %>
+
+  <% if !(reservation.listing.images.empty?) %>
+  <%= image_tag reservation.listing.images.first.url %>
+
+    <li class="description"><%= "RM" + reservation.listing.price_per_night.to_s + " " + @property_names.sample + " " + reservation.listing.location %></li>
+
+        <%if reservation.confirmation == true %>
+          <% confirmation_status = "Confirmed" %>
+        <% else %>
+        <% confirmation_status = "Pending Confirmation" %>
+        <% end %>
+
+    <li class="confirmation">Confirmation Status:<%= confirmation_status %></li>
+
+    <% else %>
+
+    <li class="description"><%= "RM" + reservation.listing.price_per_night.to_s + " " + @property_names.sample + " " + reservation.listing.location %></li>
+
+        <%if reservation.confirmation == true %>
+          <% confirmation_status = "Confirmed" %>
+        <% else %>
+        <% confirmation_status = "Pending Confirmation" %>
+        <% end %>
+
+    <li class="confirmation">Confirmation Status:<%= confirmation_status %></li>
+    <% end %>
+  <% end %>
 </ul>

@@ -8,20 +8,23 @@ byebug
 
       if @reservation.save
 
-        redirect_to root_path
+        redirect_to reservation_checkout_path(@reservation.id)
+        #redirect to a confirmation page
 
       else
 
+        @errors = @reservation.errors.full_messages
         redirect_to show_listing_path(@listing.id)
 
       end
-
   end
+
 
   def destroy
 
-  end
 
+
+  end
 
 
   def reservation_params
