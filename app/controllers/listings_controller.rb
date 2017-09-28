@@ -14,7 +14,9 @@ class ListingsController < ApplicationController
     end
 
   def new
+
     @listing = Listing.new
+
   end
 
   def show
@@ -29,6 +31,8 @@ class ListingsController < ApplicationController
       @all_listings = current_user.listings
     elsif current_user.moderator?
       @all_listings = Listing.where(verification: "false")
+    elsif !(params[:search].empty?)
+      @all_listings = Listing.search(params[:search])
     end
   end
 
@@ -54,6 +58,13 @@ class ListingsController < ApplicationController
       end
 
     end
+
+    def search
+
+
+
+    end
+
 
   def listing_params
 

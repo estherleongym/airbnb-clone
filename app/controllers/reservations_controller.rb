@@ -6,22 +6,28 @@ byebug
     @listing = Listing.find(params[:reservation][:listing_id])
     @reservation = @listing.reservations.new(reservation_params)
 
-      if @reservation.save
+    @reservation[:payment_amount] = ((@listing.price_per_night)*(@reservation.check_out - @reservation.check_in).to_i)
 
-        redirect_to root_path
 
-      else
+        if @reservation.save
 
-        redirect_to show_listing_path(@listing.id)
+          redirect_to braintree_new_path(@reservation.id)
+          #redirect to a confirmation page
+
+        else
+
+          @errors = @reservation.errors.full_messages
+          redirect_to show_listing_path(@listing.id)
 
       end
-
   end
+
 
   def destroy
 
-  end
 
+
+  end
 
 
   def reservation_params

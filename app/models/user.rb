@@ -3,7 +3,10 @@ class User < ApplicationRecord
   attr_accessor :image
   has_many :authentications, dependent: :destroy
   has_many :listings
-  has_many :reservations
+  has_many :guest_reservations, class_name: "Reservation", foreign_key: "guest_id"
+  has_many :host_reservations, class_name: "Reservation", foreign_key: "host_id"
+
+
   enum access_level: [:customer, :moderator, :superadmin]
   mount_uploader :image, ImageUploader
       def self.create_with_auth_and_hash(authentication, auth_hash)

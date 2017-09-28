@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:create, :edit, :update]
     resources :listings
-    resources :reservations, only: [:new, :show, :create, :edit, :update, :destroy]
+    resources :reservations
   end
 
   root 'static#home'
@@ -19,5 +19,8 @@ Rails.application.routes.draw do
   get "/listings/all" => "listings#all"
   put "/users/:user_id/listings/:id/verify" => "listings#verify", as: "verify_property"
   get "/listings/:id" => "listings#show", as: "show_listing"
+  post "/reservations/:id/checkout" => "braintree#checkout", as: "braintree_checkout"
+  get "/reservations/:id/braintree/new" => "braintree#new", as: "braintree_new"
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

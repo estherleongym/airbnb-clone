@@ -5,6 +5,7 @@
 <% @all_users_listings = Listing.all.paginate(page: params[:page], per_page: 7).order("created_at DESC") %>
   <% if signed_in? -%>
   <br></br>
+
     <h2 class="listings-title">Listings</h2>
     <br></br>
     <%= render partial: '/listings/all' %>
