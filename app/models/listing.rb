@@ -5,10 +5,14 @@ class Listing < ApplicationRecord
   mount_uploaders :images, ImageUploader
 
   def self.search(search)
+    byebug
   if search
-    find(:all, :conditions => ['location LIKE ?', "%#{search}%"])
+    return Listing.where("location = '#{search}'")
+    # find(:all, :conditions => ['location LIKE ?', "%#{search}%"])
   else
-    find(:all)
+
+     flash[:error] = "No search results"
+    return Listing.all
   end
 end
 

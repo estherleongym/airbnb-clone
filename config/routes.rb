@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get "/listings/:id" => "listings#show", as: "show_listing"
   post "/reservations/:id/checkout" => "braintree#checkout", as: "braintree_checkout"
   get "/reservations/:id/braintree/new" => "braintree#new", as: "braintree_new"
+  post "/listings/search/" => "listings#search", as: "search_listing"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
