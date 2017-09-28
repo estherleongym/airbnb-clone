@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927095225) do
+ActiveRecord::Schema.define(version: 20170927101153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20170927095225) do
     t.datetime "updated_at", null: false
     t.boolean "confirmation", default: true
     t.boolean "payment", default: false
+    t.integer "payment_amount"
     t.index ["listing_id"], name: "index_reservations_on_listing_id"
   end
 

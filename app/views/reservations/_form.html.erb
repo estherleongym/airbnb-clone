@@ -17,6 +17,7 @@
   <%= f.hidden_field :guest_id, value: current_user.id %>
   <%= f.hidden_field :host_id, value: @listing.user_id %>
   <%= f.hidden_field :listing_id, value: @listing.id %>
+  
 
   <div class="check-in">
     <%= f.label :check_in %>
