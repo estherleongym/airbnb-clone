@@ -23,8 +23,20 @@
             <li class="my_profile"><%= link_to t("My Profile"), user_path(current_user.id), method: :get %></li>
             <div class="img-circle"><%= image_tag(current_user.image.thumb.url) %></div>
             <li id="sign_out"> <%= link_to t(".sign_out"), sign_out_path, method: :delete %></li>
-
-
+            <div class="search-bar">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            </div>
+            <div class="another-form">
+            <% form_tag projects_path, :method => 'get' do %>
+              <p>
+                <%= text_field_tag :search, params[:search] %>
+                <%= submit_tag "Search", :name => nil %>
+              </p>
+              <% end %>
+            </div>
 
             <% elsif current_user.moderator? -%>
 
@@ -32,11 +44,25 @@
               <li class="all_listings"><%= link_to t("All Listings"), listings_all_path %></li>
               <li id="sign_out"> <%= link_to t(".sign_out"), sign_out_path, method: :delete %></li>
                 <li class="unverified_listings"><%= link_to t("Verify Listings"), user_listings_path(current_user.id) %></li>
+              <div class="search-bar">
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form>
+              </div>
+
+
+
               <% end -%>
 
               <% else -%>
                 <li id="sign_in"> <%= link_to t(".sign_in"), sign_in_path %></li>
-
+                <div class="search-bar">
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                </div>
             <% end -%>
       </ul>
     </div>
