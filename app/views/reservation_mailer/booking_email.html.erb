@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Congratulations! You have received a booking from <%= @reservation.guest.first_name %></h1>
+    <p>
+      The details of your reservation are as follows:
+      <p>Location: <%= @reservation.listing.location %> </p>
+      <p>Total Stay: <%= (@reservation.check_out - @reservation.check_in).to_i %> nights</p>
+      <p>Payment: RM<%= @reservation.payment_amount %></p>
+    </p>
+  </body>
+</html>

@@ -2,7 +2,6 @@ class ReservationsController < ApplicationController
 
   def create
 
-byebug
     @listing = Listing.find(params[:reservation][:listing_id])
     @reservation = @listing.reservations.new(reservation_params)
 
@@ -11,7 +10,9 @@ byebug
 
         if @reservation.save
 
+          @user = @reservation.host
           redirect_to braintree_new_path(@reservation.id)
+
           #redirect to a confirmation page
 
         else

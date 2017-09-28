@@ -7,7 +7,6 @@ class Reservation < ApplicationRecord
   validate :check_overlapping_dates, on: :create
   # validate :guests_count_negative
   validate :start_date_after_today, on: :create
-
   # validate :check_max_guests
 
   def check_overlapping_dates
