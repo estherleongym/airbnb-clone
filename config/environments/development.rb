@@ -59,8 +59,8 @@ Rails.application.configure do
   # :letter_opener
 config.action_mailer.smtp_settings = {
   address:              'smtp.gmail.com',
-  port:                 ENV['PORT'],
-  domain:               587,
+  port:                 '587',
+  # domain:               http://localhost:3000/,
   user_name:            ENV['GMAIL_ACCOUNT'],
   password:             ENV['GMAIL_PASSWORD'],
   authentication:       'plain',
