@@ -45,7 +45,7 @@
               <div class="search-bar">
                 <%= form_tag url: search_listing_path(:search), class: "form-inline my-2 my-lg-0" do %>
                   <p>
-                    <%byebug%>
+                
                     <%= text_field_tag :search, params[:search], class: "form-control mr-sm-2" %>
                     <%= submit_tag "Search", :name => nil, class: "btn btn-outline-success my-2 my-sm-0" %>
                   </p>

@@ -6,7 +6,7 @@ class ReservationMailer < ApplicationMailer
     @host = host
     @reservation = Reservation.find(reservation_id)
 
-    mail(to: @host.email, subject: 'Booking Confirmation')
+    mail(to: @host.email,subject: 'Booking Confirmation')
 
   end
 
