@@ -36,7 +36,7 @@ class ListingsController < ApplicationController
   end
 
   def search
-byebug
+
       @search_results = Listing.search(params[:search])
 
   end
