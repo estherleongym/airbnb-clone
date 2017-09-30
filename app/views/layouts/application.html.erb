@@ -29,7 +29,7 @@
               <% if !(current_user.image.empty?) %>
                 <div class="img-circle"><%= image_tag(current_user.image.thumb.url) %></div>
               <% end %>
-              
+
             <div class="search-bar">
               <%= form_tag search_listing_path, class: "form-inline my-2 my-lg-0" do %>
                 <p>
