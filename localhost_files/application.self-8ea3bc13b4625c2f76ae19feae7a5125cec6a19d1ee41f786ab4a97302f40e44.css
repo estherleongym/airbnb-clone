@@ -8908,7 +8908,7 @@ body {
 
 /* line 32, /Users/estherleongyuetmei/Documents/Rails/airbnb-clone/app/assets/stylesheets/application.scss */
 .landing-bg {
-  background-image: url("white.jpg");
+  background-image: url("https://s3-ap-southeast-1.amazonaws.com/elym-airbnbclone/uploads/background/white.jpg");
   width: 1440px;
   height: 900px;
   background-size: cover;
