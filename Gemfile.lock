@@ -453,6 +453,7 @@ DEPENDENCIES
   puma (~> 3.7)
   rails (~> 5.1.4)
   rails_12factor
+  redis
   rest-client
   rspec-rails
   sass-rails (~> 5.0)
@@ -465,6 +466,9 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
   will_paginate (~> 3.1.0)
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.16.0.pre.2
