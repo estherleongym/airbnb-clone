@@ -25,7 +25,7 @@
             <li class="all_listings"><%= link_to t("All Listings"), listings_all_path %></li>
             <li class="your_listings"><%= link_to t("My Listings"), user_listings_path(current_user.id) %></li>
             <li class="my_profile"><%= link_to t("My Profile"), user_path(current_user.id), method: :get %></li>
-            <li id="sign_out"> <%= link_to t(".sign_out"), sign_out_path, method: :delete %></li> -->
+            <li id="sign_out"> <%= link_to t(".sign_out"), sign_out_path, method: :delete %></li>
               <% if !(current_user.image.file.nil?) %>
                 <div class="img-circle"><%= image_tag(current_user.image.thumb.url) %></div>
               <% end %>
